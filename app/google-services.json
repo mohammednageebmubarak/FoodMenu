@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "952914560216-cs2il0t7vgrvl7cgatsblgfbabfrkrbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mubarak.foodmenu",
+            "certificate_hash": "95d32ae426810a346d044c36405efa511137df1a"
+          }
+        },
+        {
           "client_id": "952914560216-rhai7ghed8f0ig34g1cpas4g5dmhca1p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
