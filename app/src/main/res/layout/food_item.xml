@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/food_name"
             android:textColor="@android:color/white"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:textSize="20sp"
             android:gravity="center"
             android:layout_alignParentBottom="true"
