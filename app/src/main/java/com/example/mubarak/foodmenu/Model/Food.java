@@ -66,4 +66,5 @@ public class Food {
     public void setMenuId(String menuId) {
         MenuId = menuId;
     }
+
 }

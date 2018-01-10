@@ -98,6 +98,7 @@ public class SignIn extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
+                            Toast.makeText(SignIn.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
 
                         }
                     });
