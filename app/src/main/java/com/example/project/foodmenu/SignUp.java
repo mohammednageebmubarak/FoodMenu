@@ -1,4 +1,4 @@
-package com.example.mubarak.foodmenu;
+package com.example.project.foodmenu;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.mubarak.foodmenu.Common.Common;
-import com.example.mubarak.foodmenu.Model.User;
+import com.example.project.foodmenu.Common.Common;
+import com.example.project.foodmenu.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

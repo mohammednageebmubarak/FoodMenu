@@ -1,4 +1,4 @@
-package com.example.mubarak.foodmenu;
+package com.example.project.foodmenu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.mubarak.foodmenu.Interface.ItemClickListener;
-import com.example.mubarak.foodmenu.Model.Food;
-import com.example.mubarak.foodmenu.ViewHolder.FoodViewHolder;
+import com.example.project.foodmenu.Interface.ItemClickListener;
+import com.example.project.foodmenu.Model.Food;
+import com.example.project.foodmenu.ViewHolder.FoodViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

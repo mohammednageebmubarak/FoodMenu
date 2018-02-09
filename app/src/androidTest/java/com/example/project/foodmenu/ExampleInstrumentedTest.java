@@ -1,4 +1,4 @@
-package com.example.mubarak.foodmenu;
+package com.example.project.foodmenu;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

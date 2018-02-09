@@ -1,4 +1,4 @@
-package com.example.mubarak.foodmenu;
+package com.example.project.foodmenu;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.example.mubarak.foodmenu;
+package com.example.project.foodmenu;
 
 import android.content.Intent;
 import android.graphics.Typeface;

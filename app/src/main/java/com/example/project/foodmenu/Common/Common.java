@@ -1,6 +1,6 @@
-package com.example.mubarak.foodmenu.Common;
+package com.example.project.foodmenu.Common;
 
-import com.example.mubarak.foodmenu.Model.User;
+import com.example.project.foodmenu.Model.User;
 
 /**
  * Created by mubarak on 12/9/17.
