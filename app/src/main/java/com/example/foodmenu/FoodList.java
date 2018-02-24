@@ -1,5 +1,6 @@
-package com.example.project.foodmenu;
+package com.example.foodmenu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,9 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.project.foodmenu.Interface.ItemClickListener;
-import com.example.project.foodmenu.Model.Food;
-import com.example.project.foodmenu.ViewHolder.FoodViewHolder;
+import com.example.foodmenu.Interface.ItemClickListener;
+import com.example.foodmenu.ViewHolder.FoodViewHolder;
+import com.example.foodmenu.Model.Food;
+import com.example.foodmenu.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -63,7 +65,9 @@ public class FoodList extends AppCompatActivity {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Toast.makeText(FoodList.this, ""+local.getName(), Toast.LENGTH_SHORT).show();
+                        Intent foodDetail = new Intent(FoodList.this,FoodDetail.class);
+                                foodDetail.putExtra("FoodId",adapter.getRef(position).getKey());//send Food ID to new activity
+                        startActivity(foodDetail);
                     }
                 });
 

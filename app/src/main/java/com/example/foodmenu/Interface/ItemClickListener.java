@@ -1,4 +1,4 @@
-package com.example.project.foodmenu.Interface;
+package com.example.foodmenu.Interface;
 
 import android.view.View;
 

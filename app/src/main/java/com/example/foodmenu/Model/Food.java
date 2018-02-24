@@ -1,4 +1,4 @@
-package com.example.project.foodmenu.Model;
+package com.example.foodmenu.Model;
 
 /**
  * Created by engmnmubarak on 12/17/2017.

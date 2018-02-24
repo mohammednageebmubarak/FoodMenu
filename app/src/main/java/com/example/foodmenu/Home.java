@@ -1,4 +1,4 @@
-package com.example.project.foodmenu;
+package com.example.foodmenu;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.project.foodmenu.Common.Common;
-import com.example.project.foodmenu.Interface.ItemClickListener;
-import com.example.project.foodmenu.Model.Category;
-import com.example.project.foodmenu.ViewHolder.MenuViewHolder;
+import com.example.foodmenu.Interface.ItemClickListener;
+import com.example.foodmenu.Model.Category;
+import com.example.foodmenu.Common.Common;
+import com.example.foodmenu.R;
+import com.example.foodmenu.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

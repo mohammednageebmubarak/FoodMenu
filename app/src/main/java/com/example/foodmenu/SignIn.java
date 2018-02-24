@@ -1,4 +1,4 @@
-package com.example.project.foodmenu;
+package com.example.foodmenu;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.project.foodmenu.Common.Common;
-import com.example.project.foodmenu.Model.User;
+import com.example.foodmenu.Common.Common;
+import com.example.foodmenu.Model.User;
+import com.example.foodmenu.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,6 +72,7 @@ public class SignIn extends AppCompatActivity {
 
 
                                 User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
+                                user.setPhone(edtPhone.getText().toString());//set Phone
                                 if (user.getPassword().equals(edtPassword.getText().toString())) {
                                     {
                                         Intent homeIntent = new Intent(SignIn.this,Home.class);

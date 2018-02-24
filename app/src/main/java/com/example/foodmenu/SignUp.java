@@ -1,4 +1,4 @@
-package com.example.project.foodmenu;
+package com.example.foodmenu;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.project.foodmenu.Common.Common;
-import com.example.project.foodmenu.Model.User;
+import com.example.foodmenu.Common.Common;
+import com.example.foodmenu.Model.User;
+import com.example.foodmenu.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -63,7 +64,7 @@ public class SignUp extends AppCompatActivity {
                         }
                         else
                         {
-                            User user = new User(edtName.getText().toString() , edtPassword.getText().toString());
+                            User user = new User(edtName.getText().toString() , edtPassword.getText().toString(),edtPhone.getText().toString());
                             table_user.child(edtPhone.getText().toString()).setValue(user);
                             mDialog.dismiss();
                             Toast.makeText(SignUp.this,"SignUp Done Seccessfuly",Toast.LENGTH_SHORT).show();

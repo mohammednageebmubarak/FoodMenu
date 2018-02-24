@@ -1,12 +1,12 @@
-package com.example.project.foodmenu.ViewHolder;
+package com.example.foodmenu.ViewHolder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.project.foodmenu.R;
-import com.example.project.foodmenu.Interface.ItemClickListener;
+import com.example.foodmenu.Interface.ItemClickListener;
+import com.example.foodmenu.R;
 
 /**
  * Created by mubarak on 12/11/17.
