@@ -56,6 +56,17 @@ public class FoodDetail extends AppCompatActivity {
         collapsing_toolbar_layout.setCollapsedTitleTextAppearance(R.style.CollapcedAppbar);
 
         btnCart =(FloatingActionButton)findViewById(R.id.btnCart);
+
+
+
+        //get food ID from intent
+        if (getIntent()!=null)
+            foodId=getIntent().getStringExtra("FoodId");
+        if (!foodId.isEmpty())
+        {
+            getDetailFood(foodId);
+        }
+
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,16 +81,9 @@ public class FoodDetail extends AppCompatActivity {
                 Toast.makeText(FoodDetail.this, "Added to cart", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-        //get food ID from intent
-        if (getIntent()!=null)
-            foodId=getIntent().getStringExtra("FoodId");
-        if (!foodId.isEmpty())
-        {
-            getDetailFood(foodId);
-        }
     }
+
+
 
     private void getDetailFood(String foodId) {
     foods.child(foodId).addValueEventListener(new ValueEventListener() {

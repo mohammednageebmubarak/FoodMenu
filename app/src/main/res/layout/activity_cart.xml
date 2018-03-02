@@ -47,7 +47,7 @@
                     android:textColor="@android:color/white"/>
             </LinearLayout>
 
-            <info.hoang8f.widget.FButton
+            <Button
                 android:id="@+id/btnPlaceOrder"
                 android:text="Place Order"
                 android:textColor="@android:color/black"
@@ -58,11 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                app:buttonColor="@color/btnSignIn"
-                app:shadowColor="@android:color/black"
-                app:shadowEnabled="true"
-                app:shadowHeight="5dp"
-                app:cornerRadius="4dp"
+                android:shadowColor="@android:color/black"
+
                 />
 
         </RelativeLayout>
