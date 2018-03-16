@@ -11,9 +11,6 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by engmnmubarak on 2/24/2018.
- */
 
 public class Database extends SQLiteAssetHelper {
     private static final String DB_NAME="food_menu_sqlite.db";
@@ -57,7 +54,7 @@ public class Database extends SQLiteAssetHelper {
         db.execSQL(query);
     }
 
-    public void cleanCart(Order order){
+    public void cleanCart(){
         SQLiteDatabase db = getReadableDatabase();
         String query = String.format("DELETE FROM OrderDetail");
         db.execSQL(query);
