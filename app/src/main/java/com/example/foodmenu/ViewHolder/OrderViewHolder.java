@@ -1,28 +1,25 @@
 package com.example.foodmenu.ViewHolder;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.ContextMenu;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.foodmenu.Interface.ItemClickListener;
 import com.example.foodmenu.R;
 
 
+public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-    public TextView txtMenuName;
-    public ImageView imageView;
-
+    public TextView txtOrderId,txtOrderStatus,txtOrderPhone,txtOrderAdress;
     private ItemClickListener itemClickListener;
 
-    public MenuViewHolder(View itemView) {
-        super(itemView);
+    public OrderViewHolder(View itemView) {
 
-        txtMenuName = (TextView)itemView.findViewById(R.id.menu_name);
-        imageView = (ImageView)itemView.findViewById(R.id.menu_image);
+        super(itemView);
+        txtOrderAdress = (TextView) itemView.findViewById(R.id.order_address);
+        txtOrderPhone = (TextView) itemView.findViewById(R.id.order_phone);
+        txtOrderStatus = (TextView) itemView.findViewById(R.id.order_status);
+        txtOrderId = (TextView) itemView.findViewById(R.id.order_id);
         itemView.setOnClickListener(this);
     }
 
@@ -32,10 +29,7 @@ public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     @Override
     public void onClick(View view) {
-
         itemClickListener.onClick(view,getAdapterPosition(),false);
 
     }
-
-
 }

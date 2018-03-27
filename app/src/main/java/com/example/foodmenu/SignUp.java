@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 import com.example.foodmenu.Common.Common;
 import com.example.foodmenu.Model.User;
-import com.example.foodmenu.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,7 +68,7 @@ public class SignUp extends AppCompatActivity {
                             mDialog.dismiss();
                             Toast.makeText(SignUp.this,"SignUp Done Seccessfuly",Toast.LENGTH_SHORT).show();
 
-                            Intent homeIntent = new Intent(SignUp.this,Home.class);
+                            Intent homeIntent = new Intent(SignUp.this,CategoryList.class);
                             Common.currentUser = user;
                             Toast.makeText(SignUp.this,"Opening HOME page",Toast.LENGTH_SHORT).show();
                             startActivity(homeIntent);

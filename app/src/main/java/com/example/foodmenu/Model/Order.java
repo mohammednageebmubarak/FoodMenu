@@ -1,8 +1,6 @@
 package com.example.foodmenu.Model;
 
-/**
- * Created by engmnmubarak on 2/24/2018.
- */
+
 
 public class Order {
 

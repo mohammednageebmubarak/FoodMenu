@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.foodmenu.Common.Common;
 import com.example.foodmenu.Model.User;
-import com.example.foodmenu.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -75,7 +74,7 @@ public class SignIn extends AppCompatActivity {
                                 user.setPhone(edtPhone.getText().toString());//set Phone
                                 if (user.getPassword().equals(edtPassword.getText().toString())) {
                                     {
-                                        Intent homeIntent = new Intent(SignIn.this,Home.class);
+                                        Intent homeIntent = new Intent(SignIn.this,CategoryList.class);
                                         Common.currentUser = user;
 
                                         startActivity(homeIntent);

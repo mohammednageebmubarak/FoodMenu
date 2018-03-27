@@ -2,9 +2,7 @@ package com.example.foodmenu.Model;
 
 import java.util.List;
 
-/**
- * Created by engmnmubarak on 3/15/2018.
- */
+
 
 public class Request {
     private String phone;
@@ -14,12 +12,17 @@ public class Request {
     private String status;
     private List<Order> food;
 
+    public  Request(){
+
+    }
+
     public Request(String phone, String name, String address, String total, List<Order> food) {
         this.phone = phone;
         this.name = name;
         this.address = address;
         this.total = total;
         this.food = food;
+        this.status = "0";
     }
 
     public String getPhone() {

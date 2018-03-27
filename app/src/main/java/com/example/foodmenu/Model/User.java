@@ -1,8 +1,6 @@
 package com.example.foodmenu.Model;
 
-/**
- * Created by mubarak on 12/2/17.
- */
+
 
 public class User {
     private String Name;

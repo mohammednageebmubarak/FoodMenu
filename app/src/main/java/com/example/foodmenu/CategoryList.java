@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -21,14 +20,14 @@ import android.widget.Toast;
 import com.example.foodmenu.Interface.ItemClickListener;
 import com.example.foodmenu.Model.Category;
 import com.example.foodmenu.Common.Common;
-import com.example.foodmenu.R;
+import com.example.foodmenu.Service.ListenOrder;
 import com.example.foodmenu.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-public class Home extends AppCompatActivity
+public class CategoryList extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseDatabase database;
@@ -53,7 +52,7 @@ public class Home extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cartIntent = new Intent(Home.this,Cart.class);
+                Intent cartIntent = new Intent(CategoryList.this,Cart.class);
                 startActivity(cartIntent);
 
             }
@@ -76,18 +75,28 @@ public class Home extends AppCompatActivity
         recycler_menu.setLayoutManager(layoutManager);
         loadMenu();
 
+        Intent service = new Intent(CategoryList.this, ListenOrder.class);
+        startService(service);
+
 
 
 
     }
 
     private void loadMenu() {
-        adapter =new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class,R.layout.menu_item,MenuViewHolder.class,category) {
+        adapter =new FirebaseRecyclerAdapter<Category, MenuViewHolder>(
+                Category.class,
+                R.layout.menu_item,
+                MenuViewHolder.class,
+                category
+        ) {
             @Override
             protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
                 viewHolder.txtMenuName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                     .into(viewHolder.imageView);
+
+
                 final Category clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
 
@@ -96,7 +105,7 @@ public class Home extends AppCompatActivity
                     public void onClick(View view, int position, boolean isLongClick) {
 
                             //
-                        Intent foodList = new Intent(Home.this,FoodList.class);
+                        Intent foodList = new Intent(CategoryList.this,FoodList.class);
                         foodList.putExtra("categoryId",adapter.getRef(position).getKey());
                         startActivity(foodList);
 
@@ -141,15 +150,17 @@ public class Home extends AppCompatActivity
         if (id == R.id.nav_menu) {
 
         } else if (id == R.id.nav_cart) {
+            Intent cartIntent = new Intent(CategoryList.this,Cart.class);
+            startActivity(cartIntent);
 
         } else if (id == R.id.nav_orders) {
-
+            Intent ordersIntent = new Intent(CategoryList.this,OrderStatus.class);
+            startActivity(ordersIntent);
         } else if (id == R.id.nav_logout) {
-            Intent logoutIntent = new Intent(Home.this,MainActivity.class);
-
-            Toast.makeText(Home.this,"Loging out...",Toast.LENGTH_SHORT).show();
+            Intent logoutIntent = new Intent(CategoryList.this,SignIn.class);
+            logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            Toast.makeText(CategoryList.this,"Loging out...",Toast.LENGTH_SHORT).show();
             startActivity(logoutIntent);
-            finish();
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
