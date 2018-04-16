@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 public class FoodList extends AppCompatActivity {
-//
+
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     FirebaseDatabase database;
@@ -42,17 +42,19 @@ public class FoodList extends AppCompatActivity {
         //Resive intents
        // if (getIntent() != null)
             categoryId = getIntent().getStringExtra("categoryId");
-       // if (!categoryId.isEmpty() && categoryId !=null) {
+        if (!categoryId.isEmpty()) {
             loadListFood(categoryId);
-       //     }
+            }
 
     }
 
     private void loadListFood(String categoryId) {
 
-        adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(Food.class,R.layout.food_item,FoodViewHolder.class,
+        adapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(
+                Food.class,
+                R.layout.food_item,
+                FoodViewHolder.class,
                 foodList.orderByChild("menuId").equalTo(categoryId)) {
-                // Like select * from Foods where menuId =
 
             @Override
             protected void populateViewHolder(FoodViewHolder viewHolder, Food model, int position) {
@@ -66,17 +68,12 @@ public class FoodList extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
                         Intent foodDetail = new Intent(FoodList.this,FoodDetail.class);
-                                foodDetail.putExtra("FoodId",adapter.getRef(position).getKey());//send Food ID to new activity
+                                foodDetail.putExtra("FoodId",adapter.getRef(position).getKey());
                         startActivity(foodDetail);
                     }
                 });
-
-
-
             }
         };
-        //set adapter
-        //Log.d("TAG",""+adapter.getItemCount());
         recyclerView.setAdapter(adapter);
     }
 }

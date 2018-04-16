@@ -21,7 +21,7 @@ import com.example.foodmenu.Interface.ItemClickListener;
 import com.example.foodmenu.Model.Category;
 import com.example.foodmenu.Common.Common;
 import com.example.foodmenu.Service.ListenOrder;
-import com.example.foodmenu.ViewHolder.MenuViewHolder;
+import com.example.foodmenu.ViewHolder.CategoryViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -35,13 +35,13 @@ public class CategoryList extends AppCompatActivity
     TextView txtFullName;
     RecyclerView recycler_menu;
     RecyclerView.LayoutManager layoutManager;
-    FirebaseRecyclerAdapter<Category,MenuViewHolder> adapter;
+    FirebaseRecyclerAdapter<Category,CategoryViewHolder> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_category_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Menu");
         setSupportActionBar(toolbar);
@@ -84,20 +84,20 @@ public class CategoryList extends AppCompatActivity
     }
 
     private void loadMenu() {
-        adapter =new FirebaseRecyclerAdapter<Category, MenuViewHolder>(
+        adapter =new FirebaseRecyclerAdapter<Category, CategoryViewHolder>(
                 Category.class,
-                R.layout.menu_item,
-                MenuViewHolder.class,
+                R.layout.category_item,
+                CategoryViewHolder.class,
                 category
         ) {
             @Override
-            protected void populateViewHolder(MenuViewHolder viewHolder, Category model, int position) {
+            protected void populateViewHolder(CategoryViewHolder viewHolder, Category model, int position) {
                 viewHolder.txtMenuName.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                     .into(viewHolder.imageView);
 
 
-                final Category clickItem = model;
+               // final Category clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
 
 

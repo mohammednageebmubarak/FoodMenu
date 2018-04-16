@@ -8,9 +8,6 @@ import android.widget.TextView;
 import com.example.foodmenu.Interface.ItemClickListener;
 import com.example.foodmenu.R;
 
-/**
- * Created by engmnmubarak on 12/17/2017.
- */
 
 public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

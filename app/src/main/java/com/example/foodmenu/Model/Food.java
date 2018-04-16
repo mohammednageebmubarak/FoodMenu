@@ -1,8 +1,5 @@
 package com.example.foodmenu.Model;
 
-/**
- * Created by engmnmubarak on 12/17/2017.
- */
 
 public class Food {
     private String Name,Image,Description,Price,Discount,MenuId;

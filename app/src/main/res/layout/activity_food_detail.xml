@@ -53,6 +53,19 @@
         app:layout_anchorGravity="bottom|right|end"
         app:useCompatPadding="true"/>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnRating"
+        android:src="@drawable/ic_star_black_24dp"
+        android:backgroundTint="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        app:pressedTranslationZ="12dp"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|start"
+        app:useCompatPadding="true"/>
+
+
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:clipToPadding="false"
@@ -123,13 +136,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/food_description"
-                    android:text="1000"
-                    android:layout_width="0dp"
-                    android:layout_weight="9"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"/>
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+                   
+                   <RatingBar
+                       android:id="@+id/ratingBar"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:rating="0"
+                       android:max="5"
+                       android:isIndicator="true"
+                       />
+
+                   <TextView
+                       android:id="@+id/food_description"
+                       android:text="1000"
+                       android:layout_width="0dp"
+                       android:layout_weight="9"
+                       android:layout_height="wrap_content"
+                       android:textSize="18sp"/>
+               </LinearLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

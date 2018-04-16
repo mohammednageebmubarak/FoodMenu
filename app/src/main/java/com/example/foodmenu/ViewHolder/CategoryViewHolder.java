@@ -11,18 +11,18 @@ import com.example.foodmenu.R;
 
 
 
-public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class CategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     public TextView txtMenuName;
     public ImageView imageView;
 
     private ItemClickListener itemClickListener;
 
-    public MenuViewHolder(View itemView) {
+    public CategoryViewHolder(View itemView) {
         super(itemView);
 
-        txtMenuName = (TextView)itemView.findViewById(R.id.menu_name);
-        imageView = (ImageView)itemView.findViewById(R.id.menu_image);
+        txtMenuName = (TextView)itemView.findViewById(R.id.category_name);
+        imageView = (ImageView)itemView.findViewById(R.id.category_image);
         itemView.setOnClickListener(this);
     }
 
