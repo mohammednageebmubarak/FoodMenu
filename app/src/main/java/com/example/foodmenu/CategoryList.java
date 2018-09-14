@@ -1,5 +1,6 @@
 package com.example.foodmenu;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,13 +8,16 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +26,7 @@ import com.example.foodmenu.Model.Category;
 import com.example.foodmenu.Common.Common;
 import com.example.foodmenu.Service.ListenOrder;
 import com.example.foodmenu.ViewHolder.CategoryViewHolder;
+import com.example.foodmenu.Model.User;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -100,11 +105,9 @@ public class CategoryList extends AppCompatActivity
                // final Category clickItem = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
 
-
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
 
-                            //
                         Intent foodList = new Intent(CategoryList.this,FoodList.class);
                         foodList.putExtra("categoryId",adapter.getRef(position).getKey());
                         startActivity(foodList);
@@ -140,7 +143,9 @@ public class CategoryList extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+    //Init Firebase Database
 
+//    final DatabaseReference table_user = database.getReference("User");
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -157,10 +162,48 @@ public class CategoryList extends AppCompatActivity
             Intent ordersIntent = new Intent(CategoryList.this,OrderStatus.class);
             startActivity(ordersIntent);
         } else if (id == R.id.nav_logout) {
-            Intent logoutIntent = new Intent(CategoryList.this,SignIn.class);
+            /*Intent logoutIntent = new Intent(CategoryList.this,SignIn.class);
             logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             Toast.makeText(CategoryList.this,"Loging out...",Toast.LENGTH_SHORT).show();
-            startActivity(logoutIntent);
+            startActivity(logoutIntent);*/
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(CategoryList.this);
+            LayoutInflater inflater = getLayoutInflater();
+
+            View dialog_layout = inflater.inflate(R.layout.activity_logout_dialog,null);
+            final EditText txtps = (EditText) dialog_layout.findViewById(R.id.txtuserpass);
+            builder.setView(dialog_layout)
+
+                    .setPositiveButton("LogOut", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            if (Common.currentUser.getPassword().equals(txtps.getText().toString())) {
+
+                                Toast.makeText(CategoryList.this,"Loging out...",Toast.LENGTH_SHORT).show();
+                                dialogInterface.dismiss();
+
+                                Intent logoutIntent = new Intent(CategoryList.this,SignIn.class);
+                                logoutIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                Toast.makeText(CategoryList.this, "Sign Out Success", Toast.LENGTH_SHORT).show();
+                                startActivity(logoutIntent);
+
+                            }else {
+                                Toast.makeText(CategoryList.this, "Sign Out Failed", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                        }
+                    })
+                    .setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -18,14 +18,6 @@ public class User {
         Phone = phone;
     }
 
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String phone) {
-        Phone = phone;
-    }
-
     public String getName() {
         return Name;
     }
@@ -40,5 +32,13 @@ public class User {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 }

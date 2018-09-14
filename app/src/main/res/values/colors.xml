@@ -7,6 +7,9 @@
     <color name="btnSignIn">#853687</color>
     <color name="btnSignUp">#853687</color>
     <color name="btnSignActive">#a9d440</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="grey">#40000000</color>
 
 
     <color name="overlayBackground">#7f333639</color>

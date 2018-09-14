@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/white"
-            android:text="733553323"
+            android:text="734144244"
             android:textColor="@android:color/white"
             android:textSize="34sp"
             android:inputType="phone"
@@ -42,7 +42,7 @@
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtName"
             android:hint="Username"
-            android:text="m"
+            android:text="ah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="@android:color/white"
@@ -79,7 +79,7 @@
     <Button
         android:id="@+id/btnSignIn"
         android:text="Sign In"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_weight="1"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"

@@ -1,8 +1,5 @@
 package com.example.foodmenu.Model;
 
-/**
- * Created by mubarak on 12/11/17.
- */
 
 public class Category {
 

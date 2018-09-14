@@ -21,7 +21,7 @@
             <ImageView
                 android:src="@drawable/logo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="250dp"
 
                 />
             <TextView
@@ -37,11 +37,11 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:weightSum="2"
+        android:weightSum="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
+        <!--<Button
             android:id="@+id/btnSignUp"
             android:text="Sign Up"
             android:textColor="@android:color/white"
@@ -51,7 +51,7 @@
             android:layout_margin="8dp"
             android:background="@color/colorPrimary"
 
-            />
+            />-->
 
         <Button
             android:id="@+id/btnSignIn"
@@ -60,11 +60,11 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:background="@color/btnSignIn"
+            android:layout_margin="10dp"
+            android:background="@color/colorPrimaryDark"
 
             />
 
     </LinearLayout>
-    
+
 </RelativeLayout>

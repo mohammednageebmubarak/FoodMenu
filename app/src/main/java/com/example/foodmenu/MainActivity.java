@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Impelement the buttons of SignIn & SignUp from MainActivity.xml
         btnSignIn = (Button)findViewById(R.id.btnSignIn);
-        btnSignUp= (Button)findViewById(R.id.btnSignUp);
 
         //Change text font to the font added in  assets/fonts directory
         txtslogan = (TextView)findViewById(R.id.txtslogan);
@@ -37,14 +36,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //SignUp button code to SignUn Activity
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent signUp = new Intent(MainActivity.this,SignUp.class);
-                startActivity(signUp);
-
-            }
-        });
     }
 }

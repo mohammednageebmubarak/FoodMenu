@@ -1,5 +1,7 @@
 package com.example.foodmenu;
 
+import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.renderscript.Sampler;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -34,7 +36,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
     TextView food_name,food_price,food_description;
     ImageView food_image;
     CollapsingToolbarLayout collapsing_toolbar_layout;
-    FloatingActionButton btnCart,btnRaring;
+    FloatingActionButton btnCart,btnRaring,btnComment;
     RatingBar ratingBar;
     ElegantNumberButton number_button;
     FirebaseDatabase database;
@@ -63,17 +65,28 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
         collapsing_toolbar_layout.setCollapsedTitleTextAppearance(R.style.CollapcedAppbar);
         btnCart =(FloatingActionButton)findViewById(R.id.btnCart);
         btnRaring =(FloatingActionButton)findViewById(R.id.btnRating);
+        btnComment =(FloatingActionButton)findViewById(R.id.btnShowComments);
         ratingBar = (RatingBar)findViewById(R.id.ratingBar);
 
         btnRaring.setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                        showRatingDialog();
+                     }
+                 }
+        );
+
+        btnComment.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View view) {
-                                             showRatingDialog();
-
+                                             Rating comment = new Rating();
+                                             Intent commentintent = new Intent(FoodDetail.this,CommentList.class);
+                                             commentintent.putExtra("categoryId",currentFood.getMenuId());
+                                             startActivity(commentintent);
                                          }
                                      }
-
         );
+
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +103,9 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
         });
 
 
-                //get food ID from intent
-        if (getIntent()!=null)
-            foodId=getIntent().getStringExtra("FoodId");
+        //get food ID from intent
+        if (getIntent()!= null)
+            foodId = getIntent().getStringExtra("FoodId");
         if (!foodId.isEmpty())
         {
             getDetailFood(foodId);
@@ -105,13 +118,13 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
     private void getRatingFood(String foodId) {
         Query foodRating = ratingTbl.orderByChild("foodId").equalTo(foodId);
         foodRating.addValueEventListener(new ValueEventListener() {
-            int count = 0,sum = 0;
+            int count = 0, sum = 0;
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot:dataSnapshot.getChildren())
                 {
                     Rating item = postSnapshot.getValue(Rating.class);
-                    sum+=Integer.parseInt(item.getRateValue());
+                    sum+= Integer.parseInt(item.getRateValue());
                     count++;
                 }
                 if (count != 0)
@@ -140,7 +153,7 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
                 .setTitleTextColor(R.color.colorPrimary)
                 .setNoteDescriptionTextColor(R.color.colorPrimary)
                 .setHint("Write your comment here")
-                .setHintTextColor(R.color.colorPrimary)
+                .setHintTextColor(R.color.white)
                 .setCommentTextColor(android.R.color.white)
                 .setCommentBackgroundColor(R.color.colorPrimaryDark)
                 .setWindowAnimation(R.style.RatingDialogFadeAnim)

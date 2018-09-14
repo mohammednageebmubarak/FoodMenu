@@ -73,7 +73,7 @@ public class ListenOrder extends Service implements ChildEventListener{
         builder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
-                .setTicker("FoodMenu")
+                .setTicker("Foodak App")
                 .setContentInfo("Your order updated")
                 .setContentText("Order #"+key+"was update status to"+ Common.convertCodeToStatus(request.getStatus()))
         .setContentIntent(pendingIntent)

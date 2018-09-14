@@ -1,9 +1,5 @@
 package com.example.foodmenu.Model;
 
-/**
- * Created by engmnmubarak on 3/30/2018.
- */
-
 public class Rating {
     private String userPhone;
     private String foodId;
