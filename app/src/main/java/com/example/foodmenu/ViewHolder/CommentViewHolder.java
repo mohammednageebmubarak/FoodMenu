@@ -19,8 +19,8 @@ public class CommentViewHolder extends RecyclerView.ViewHolder implements View.O
     public CommentViewHolder(View itemView) {
         super(itemView);
 
-        txtcomment = (TextView)itemView.findViewById(R.id.comment);
-        imageView = (ImageView)itemView.findViewById(R.id.comment_profile_image);
+        txtcomment = itemView.findViewById(R.id.comment);
+        imageView = itemView.findViewById(R.id.comment_profile_image);
         itemView.setOnClickListener(this);
     }
 

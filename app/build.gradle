@@ -5,7 +5,6 @@ android {
         abortOnError false
     }
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.foodmenu"
         minSdkVersion 23

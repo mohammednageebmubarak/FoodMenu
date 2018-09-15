@@ -34,9 +34,9 @@ public class FoodList extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         foodList=database.getReference("Foods");
 
-        recyclerView=(RecyclerView)findViewById(R.id.recycler_food);
+        recyclerView = findViewById(R.id.recycler_food);
         recyclerView.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
         //Resive intents

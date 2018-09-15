@@ -25,37 +25,38 @@ public class CommentList extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference commentList;
     FirebaseRecyclerAdapter<Rating,CommentViewHolder> adapter;
-    String categoryId ="";
+    String foodId ="";
     Rating comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Comments");
         setSupportActionBar(toolbar);
 
         database=FirebaseDatabase.getInstance();
         commentList=database.getReference("Rating");
 
-        recyclerView=(RecyclerView)findViewById(R.id.recycler_comment);
+        recyclerView= findViewById(R.id.recycler_comment);
         recyclerView.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        categoryId = getIntent().getStringExtra("categoryId");
-        if (!categoryId.isEmpty()) {
-            loadListcomment(categoryId);
+        foodId = getIntent().getStringExtra("foodId");
+        if (!foodId.isEmpty()) {
+            loadListcomment(foodId);
         }
     }
 
-    private void loadListcomment(String categoryId) {
+    private void loadListcomment(String foodId) {
         adapter = new FirebaseRecyclerAdapter<Rating, CommentViewHolder>(
                 Rating.class,
                 R.layout.comment_item,
                 CommentViewHolder.class,
-                commentList.orderByChild("comment")) {
+                commentList.orderByChild("foodId")
+                .equalTo(foodId)) {
 
             @Override
             protected void populateViewHolder(CommentViewHolder viewHolder, Rating model, int position) {

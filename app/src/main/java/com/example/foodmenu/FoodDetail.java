@@ -55,18 +55,18 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
         ratingTbl= database.getReference("Rating");
 
         //Init view
-        number_button=(ElegantNumberButton)findViewById(R.id.number_button);
-        food_description=(TextView)findViewById(R.id.food_description);
-        food_name=(TextView)findViewById(R.id.food_name);
-        food_price=(TextView)findViewById(R.id.food_price);
-        food_image=(ImageView)findViewById(R.id.img_food);
-        collapsing_toolbar_layout=(CollapsingToolbarLayout)findViewById(R.id.collapsing);
+        number_button= findViewById(R.id.number_button);
+        food_description= findViewById(R.id.food_description);
+        food_name= findViewById(R.id.food_name);
+        food_price= findViewById(R.id.food_price);
+        food_image= findViewById(R.id.img_food);
+        collapsing_toolbar_layout= findViewById(R.id.collapsing);
         collapsing_toolbar_layout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
         collapsing_toolbar_layout.setCollapsedTitleTextAppearance(R.style.CollapcedAppbar);
-        btnCart =(FloatingActionButton)findViewById(R.id.btnCart);
-        btnRaring =(FloatingActionButton)findViewById(R.id.btnRating);
-        btnComment =(FloatingActionButton)findViewById(R.id.btnShowComments);
-        ratingBar = (RatingBar)findViewById(R.id.ratingBar);
+        btnCart = findViewById(R.id.btnCart);
+        btnRaring = findViewById(R.id.btnRating);
+        btnComment = findViewById(R.id.btnShowComments);
+        ratingBar = findViewById(R.id.ratingBar);
 
         btnRaring.setOnClickListener(new View.OnClickListener() {
                  @Override
@@ -79,10 +79,9 @@ public class FoodDetail extends AppCompatActivity implements RatingDialogListene
         btnComment.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View view) {
-                                             Rating comment = new Rating();
-                                             Intent commentintent = new Intent(FoodDetail.this,CommentList.class);
-                                             commentintent.putExtra("categoryId",currentFood.getMenuId());
-                                             startActivity(commentintent);
+                                             Intent i_comment = new Intent(FoodDetail.this,CommentList.class);
+                                             i_comment.putExtra("foodId",foodId);
+                                             startActivity(i_comment);
                                          }
                                      }
         );
