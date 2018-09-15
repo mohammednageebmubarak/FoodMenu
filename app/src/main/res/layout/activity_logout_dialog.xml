@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#009688"
+        android:id="@+id/view" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Logout Confirmation"
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#ffffff"
+        android:layout_alignBottom="@+id/view"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:inputType="textPassword"
+        android:hint="Please Enter Your Password"
+        android:drawableLeft="@drawable/ic_lock"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:singleLine="true"
+        android:ems="10"
+        android:id="@+id/txtuserpass"
+        android:layout_below="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
